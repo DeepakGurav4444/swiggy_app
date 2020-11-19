@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:swiggy_app/pages/profile_page.dart';
+import 'package:swiggy_app/account/components/profile_page.dart';
 import 'package:swiggy_app/services/network_handler.dart';
 
 class LoggedIn extends StatefulWidget {

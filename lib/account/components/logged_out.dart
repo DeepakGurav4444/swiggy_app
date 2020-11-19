@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:swiggy_app/account/mobile_screen.dart';
+import 'package:swiggy_app/account/components/mobile_screen.dart';
 import 'package:swiggy_app/services/get_mobile_number.dart';
 
 class LoggedOut extends StatefulWidget {

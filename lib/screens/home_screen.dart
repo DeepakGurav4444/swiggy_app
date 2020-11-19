@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:swiggy_app/Models/bottom_navmodel.dart';
-import 'package:swiggy_app/pages/cart_page.dart';
-import 'package:swiggy_app/pages/home_page.dart';
-import 'package:swiggy_app/pages/profile_page.dart';
-import 'package:swiggy_app/pages/search_page.dart';
 
 class HomeScreen extends StatefulWidget {
   @override

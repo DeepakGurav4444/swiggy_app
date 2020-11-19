@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:swiggy_app/pages/cart_page.dart';
-import 'package:swiggy_app/pages/home_page.dart';
-import 'package:swiggy_app/pages/profile_page.dart';
+import 'package:swiggy_app/home/home_page.dart';
+import 'package:swiggy_app/account/components/profile_page.dart';
 import 'package:swiggy_app/pages/search_page.dart';
 
 class BottomNavModel extends ChangeNotifier {

@@ -7,6 +7,7 @@ class ShopCategories extends StatefulWidget {
 }
 
 class _ShopCategoriesState extends State<ShopCategories> {
+  Size size;
   List<Image> placeHolders = [
     Image.asset("assets/images/holder1.png"),
     Image.asset("assets/images/holder2.png"),
@@ -17,7 +18,7 @@ class _ShopCategoriesState extends State<ShopCategories> {
   ];
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    size = MediaQuery.of(context).size;
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
