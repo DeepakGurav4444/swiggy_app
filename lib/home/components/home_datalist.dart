@@ -1,6 +1,5 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:swiggy_app/components/shop_categories.dart';
+import 'shop_categories.dart';
 
 import 'food_type.dart';
 

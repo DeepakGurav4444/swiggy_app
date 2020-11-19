@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:swiggy_app/components/home_datalist.dart';
 import 'package:swiggy_app/helpers/home_shimmerlist.dart';
+import 'package:swiggy_app/home/components/home_datalist.dart';
 
 class HomePage extends StatefulWidget {
   @override
