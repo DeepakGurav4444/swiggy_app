@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:swiggy_app/account/logged_in.dart';
-import 'package:swiggy_app/account/logged_out.dart';
+import 'package:swiggy_app/account/components/logged_in.dart';
+import 'package:swiggy_app/account/components/logged_out.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
