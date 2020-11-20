@@ -19,8 +19,8 @@ class MobileScreen extends StatefulWidget {
 }
 
 class _MobileScreenState extends State<MobileScreen> {
+  String enteredNumber;
   NetworkHandler networkHandler = NetworkHandler();
-  bool userAlereadyExist = false;
   final storage = new FlutterSecureStorage();
   final mobileFormKey = GlobalKey<FormState>();
   TextEditingController _mobileNumberController = TextEditingController();
@@ -93,19 +93,16 @@ class _MobileScreenState extends State<MobileScreen> {
                         child: TextFormField(
                             keyboardType: TextInputType.number,
                             controller: _mobileNumberController,
+                            onChanged: (String val) => enteredNumber = val,
                             validator: (String val) {
                               if (val.isEmpty) {
                                 model.circularStatus = false;
                                 return "Please Enter Your Phone Number";
                               } else if (val.length != 10) {
-                                setState(() {
-                                  model.circularStatus = false;
-                                });
+                                model.circularStatus = false;
                                 return "Please Enter Your correct Phone Number";
-                              } else if (userAlereadyExist) {
-                                setState(() {
-                                  model.circularStatus = false;
-                                });
+                              } else if (model.userAlreadyExistStatus) {
+                                model.circularStatus = false;
                               }
                             },
                             decoration: InputDecoration(
@@ -135,8 +132,8 @@ class _MobileScreenState extends State<MobileScreen> {
                             onPressed: () async {
                               model.circularStatus = true;
                               if (mobileFormKey.currentState.validate()) {
-                                await checkUser();
-                                if (userAlereadyExist) {
+                                await checkUser(model);
+                                if (model.userAlreadyExistStatus) {
                                   Map<String, String> data = {
                                     "mobile_number":
                                         _mobileNumberController.text,
@@ -161,17 +158,18 @@ class _MobileScreenState extends State<MobileScreen> {
                                                 ProfilePage()),
                                         (route) => false);
                                   }
+                                  model.circularStatus = false;
                                 } else {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
                                       builder: (BuildContext context) =>
                                           RegisterScreen(
-                                        mobileNumber:
-                                            _mobileNumberController.text,
+                                        mobileNumber: enteredNumber,
                                       ),
                                     ),
                                   );
+                                  model.circularStatus = false;
                                 }
                               }
                             },
@@ -202,19 +200,15 @@ class _MobileScreenState extends State<MobileScreen> {
     );
   }
 
-  checkUser() async {
+  checkUser(CircularModel model) async {
     var response = await networkHandler
         .get("/account/checkmobile/${_mobileNumberController.text}");
     if (response["Status"]) {
-      setState(() {
-        print("User Aleredy Exist");
-        userAlereadyExist = true;
-      });
+      print("User Aleredy Exist");
+      model.userAlreadyExistStatus = true;
     } else {
-      setState(() {
-        print("User Not Exist");
-        userAlereadyExist = false;
-      });
+      print("User Not Exist");
+      model.userAlreadyExistStatus = false;
     }
   }
 }

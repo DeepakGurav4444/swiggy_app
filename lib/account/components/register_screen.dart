@@ -4,6 +4,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:provider/provider.dart';
 import 'package:swiggy_app/Models/circular_model.dart';
 import 'package:swiggy_app/account/components/profile_page.dart';
+import 'package:swiggy_app/screens/home_screen.dart';
 import 'package:swiggy_app/services/network_handler.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -41,7 +42,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       padding:
                           EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                       child: TextFormField(
-                        enableInteractiveSelection: false,
+                        enabled: false,
                         keyboardType: TextInputType.number,
                         controller: _mobileNumberController,
                         decoration: InputDecoration(
@@ -147,8 +148,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     Navigator.pushAndRemoveUntil(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) =>
-                                                ProfilePage()),
+                                            builder: (context) => HomeScreen()),
                                         (route) => false);
                                   } else {
                                     print("Network Error");
